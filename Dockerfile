@@ -1,5 +1,4 @@
-#This line is automatically added by the build script
-#FROM ubuntu:17.04
+FROM ubuntu:18.04
 
 MAINTAINER Menny Even-Danan "menny@evendanan.net"
 LABEL description="A general use Android docker for CI"
@@ -8,7 +7,7 @@ RUN apt-get update && apt-get install -y software-properties-common
 # Install Deps and build-essential
 RUN dpkg --add-architecture i386 && \
 	apt-get update && \
-	apt-get install -y locales ca-certificates nano rsync sudo zip git build-essential wget libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5 lib32z1 python curl psmisc module-init-tools python-pip && \
+	apt-get install -y locales ca-certificates nano rsync sudo zip git build-essential wget libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5 lib32z1 python curl psmisc module-init-tools libglu1 pulseaudio python-pip qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils && \
 	apt-get clean
 
 RUN locale-gen en_US.UTF-8
